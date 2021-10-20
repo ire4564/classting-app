@@ -8,21 +8,21 @@ import NextButton from '../components/NextButton';
 
 function QuizPage() {
   return (
-    <div className="Main">
-      <div class="Container">
-      <div class="row">
+    <div className="QuizPage">
+      <div className="Container">
+      <div className="row">
         {/*Logo*/}
-        <div class="col-sm-12" className="LogoArea">
+        <div className="col-sm-12 LogoArea">
           <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
         </div>
         {/*Content(Quiz)*/}
-        <div class="col-sm-12" className="ContentArea">
+        <div className="col-sm-12 ContentArea">
           <Quiz/>
         </div>
         {/*Button(check)*/}
-        <div class="col-sm-12" className="SelectArea">
+        <div className="col-sm-12 SelectArea">
           <CheckBox/>
-          <NextButton/>
+          <NextButton btnText="다음 문제로"/>
         </div>
         </div>
         </div>

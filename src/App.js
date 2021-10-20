@@ -4,18 +4,17 @@ import './App.css';
 
 //pages
 import QuizPage from './pages/QuizPage';
+import Main from './pages/Main';
 
 function App() {
   return (
     <div className="App">
-      <div class="Container">
       <BrowserRouter>
         <Switch>
-          {/*<Route exact={true} path="/" component={Home}/>*/}
+          <Route exact={true} path="/" component={Main}/>
           <Route path="/quiz" component={QuizPage} />
         </Switch>
       </BrowserRouter>
-      </div>
     </div>
   );
 }

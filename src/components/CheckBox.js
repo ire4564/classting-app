@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-
-import { ButtonGroup } from 'react-bootstrap';
 import "../App.css";
 
 function CheckBox() {
