@@ -1,30 +1,21 @@
+import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-//component
-import CheckBox from './components/CheckBox';
-import Quiz from './components/Quiz';
-import NextButton from './components/NextButton';
-
-function App() {
+function Main() {
   return (
     <div className="App">
       <div class="Container">
       <div class="row">
-        {/*Logo*/}
         <div class="col-sm-12" className="LogoArea">
           <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
         </div>
-        {/*Content(Quiz)*/}
         <div class="col-sm-12" className="ContentArea">
-          <Quiz/>
+          <p>content</p>
         </div>
-        {/*Button(check)*/}
-        <div class="col-sm-12" className="SelectArea">
-          <CheckBox/>
-          <NextButton/>
+        <div class="col-sm-12" className="ButtonArea">
+          <p>button</p>
         </div>
-      
       </div>
 </div>
     </div>
