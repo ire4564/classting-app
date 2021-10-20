@@ -1,32 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-//component
-import CheckBox from './components/CheckBox';
-import Quiz from './components/Quiz';
-import NextButton from './components/NextButton';
+//pages
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
     <div className="App">
       <div class="Container">
-      <div class="row">
-        {/*Logo*/}
-        <div class="col-sm-12" className="LogoArea">
-          <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
-        </div>
-        {/*Content(Quiz)*/}
-        <div class="col-sm-12" className="ContentArea">
-          <Quiz/>
-        </div>
-        {/*Button(check)*/}
-        <div class="col-sm-12" className="SelectArea">
-          <CheckBox/>
-          <NextButton/>
-        </div>
-      
+      <BrowserRouter>
+        <Switch>
+          {/*<Route exact={true} path="/" component={Home}/>*/}
+          <Route path="/quiz" component={QuizPage} />
+        </Switch>
+      </BrowserRouter>
       </div>
-</div>
     </div>
   );
 }
