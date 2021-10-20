@@ -1,23 +1,23 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class="Container">
+      <div class="row">
+        <div class="col-sm-12" className="LogoArea">
+          <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
+        </div>
+        <div class="col-sm-12" className="ContentArea">
+          <p>content</p>
+        </div>
+        <div class="col-sm-12" className="ButtonArea">
+          <p>button</p>
+        </div>
+      </div>
+</div>
     </div>
   );
 }
