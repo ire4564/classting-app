@@ -1,29 +1,29 @@
 {
     "quiz": [
        {
-        "number": 1, 
+        "number": 0, 
         "question": "red Apple",
-        "select": "Apple"
+        "answer": "Apple"
+       },
+       {
+        "number": 1, 
+        "question": "yellow Banana",
+        "answer": "Banana"
        },
        {
         "number": 2, 
-        "question": "yellow Banana",
-        "select": "Banana"
+        "question": "green Kale",
+        "answer": "Kale"
        },
        {
         "number": 3, 
-        "question": "green Kale",
-        "select": "Kale"
+        "question": "blue Blueberries",
+        "answer": "Blueberries"
        },
        {
         "number": 4, 
-        "question": "blue Blueberries",
-        "select": "Blueberries"
-       },
-       {
-        "number": 5, 
         "question": "yellow Orange",
-        "select": "Orange"
+        "answer": "Orange"
        }
     ]
 }

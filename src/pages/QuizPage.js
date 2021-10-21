@@ -3,13 +3,38 @@ import '../App.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-//data
-import quizData from "../data/quiz.json";
-
 //component
 import CheckBox from '../components/CheckBox';
 import Quiz from '../components/Quiz';
 import NextButton from '../components/NextButton';
+//data
+import answerData from "../data/answer.json";
+import quizData from "../data/quiz.json";
+
+/*set selection*/
+function setSelect(number)  {
+    //answerData.answer.length => Sample Data length
+    let setAnswer = [];
+    let isExist = [true, true, true, true];
+    let checkReady = 1;
+    let radomIndex = Math.floor(Math.random() * (3)) + 0;
+    //set radom order
+    setAnswer[radomIndex] = quizData.quiz[number].answer;
+    isExist[radomIndex] = false;
+
+    while(checkReady !== 4) {
+        radomIndex = Math.floor(Math.random() * (answerData.answer.length-1)) + 0;
+        var radomData = answerData.answer[radomIndex];
+        //new Index => then set AnswerArray
+        if(setAnswer.indexOf(radomData) === -1) {
+            var index = isExist.indexOf(true);
+            setAnswer[index] = radomData;
+            isExist[index] = false;
+            checkReady++;
+        }
+    }
+    return setAnswer;
+}
 
 function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -43,7 +68,7 @@ function QuizPage() {
         </div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
-          <CheckBox questionNum="1"/>
+          <CheckBox dataSet={setSelect(currentQuestion)}/>
           <NextButton clickFunc={clickNextButton} btnText={ButtonText}/>
         </div>
         </div>
