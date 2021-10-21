@@ -41,7 +41,8 @@ function QuizPage() {
   const [ButtonText, setButtonText] = useState("다음 문제");
   const history = useHistory();
 
-  const clickNextButton = () => {
+  /*check answer*/
+  const clickCheckAnswer = () => {
     if(currentQuestion < quizData.quiz.length-1) {
       const updateQuestion = currentQuestion + 1;
       setCurrentQuestion(updateQuestion);
@@ -69,7 +70,7 @@ function QuizPage() {
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
           <CheckBox dataSet={setSelect(currentQuestion)}/>
-          <NextButton clickFunc={clickNextButton} btnText={ButtonText}/>
+          <NextButton clickFunc={clickCheckAnswer} btnText={ButtonText}/>
         </div>
         </div>
         </div>
