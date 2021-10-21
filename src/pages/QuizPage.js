@@ -21,8 +21,8 @@ function QuizPage() {
         </div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
-          <CheckBox/>
-          <NextButton btnText="다음 문제로"/>
+          <CheckBox questionNum="1"/>
+          <NextButton btnText="다음 문제"/>
         </div>
         </div>
         </div>

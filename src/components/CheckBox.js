@@ -3,19 +3,35 @@ import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import "../App.css";
 
-function CheckBox() {
-    const [radioValue, setRadioValue] = useState('1');
+//data
+import answerData from "../data/answer.json";
 
-    const radios = [
-        { name: 'answer 1', value: '1' },
-        { name: 'answer 2', value: '2' },
-        { name: 'answer 3', value: '3' },
-        { name: 'answer 4', value: '4' },
-    ];
+function setSelect()  {
+    //answerData.answer.length => Sample Data length
+    let already = [];
+    let setAnswer = [];
+    let checkReady = 0;
+    
+    while(checkReady !== 4) {
+        var radomIndex = Math.floor(Math.random() * (answerData.answer.length-1)) + 0;
+        //new Index => then set AnswerArray
+        if(already.indexOf(radomIndex) == -1) {
+            already.push(radomIndex);
+            setAnswer.push(answerData.answer[radomIndex]);
+            checkReady++;
+        }
+    }
+    return setAnswer;
+}
+
+function CheckBox(props) {
+    const [radioValue, setRadioValue] = useState('1');
+    const [getAnswer, setAnswer] = useState(setSelect());
+    const [currentQuestion, setCurrentQuestion] = useState(1);
 
     return (
         <>
-        {radios.map((radio, idx) => (
+        {getAnswer.map((data, idx) => (
             <ToggleButton
                 key={idx}
                 id={`radio-${idx}`}
@@ -23,12 +39,12 @@ function CheckBox() {
                 variant={idx % 2 ? 'outline-success' : 'outline-success'}
                 name="radio"
                 className="SelectBtn"
-                value={radio.value}
-                checked={radioValue === radio.value}
+                value={data}
+                checked={radioValue === data}
                 onChange={(e) => setRadioValue(e.currentTarget.value)}
                 >
-                <div className="ProblemNum">{radio.value}</div>
-                {radio.name}
+                <div className="ProblemNum">{idx+1}</div>
+                {data}
             </ToggleButton>
             ))}
         </>
