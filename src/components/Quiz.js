@@ -1,10 +1,10 @@
 import React from 'react';
 import "../App.css";
 
-function Quiz() {
+function Quiz(props) {
     return (
         <div className="QuizArea">
-            <p>Quiz</p>
+            <p>{props.question}</p>
         </div>
     );
 }

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 function NextButton(props) {
     return (
         <div>
-            <Button variant="outline-light" className="NextBtn">{props.btnText}</Button>
+            <Button onClick={props.clickFunc} variant="outline-light" className="NextBtn">{props.btnText}</Button>
         </div>
     );
 }

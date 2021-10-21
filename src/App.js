@@ -4,6 +4,7 @@ import './App.css';
 
 //pages
 import QuizPage from './pages/QuizPage';
+import ResultPage from './pages/ResultPage';
 import Main from './pages/Main';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route exact={true} path="/" component={Main}/>
           <Route path="/quiz" component={QuizPage} />
+          <Route path="/result" component={ResultPage} />
         </Switch>
       </BrowserRouter>
     </div>

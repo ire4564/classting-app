@@ -27,7 +27,6 @@ function setSelect()  {
 function CheckBox(props) {
     const [radioValue, setRadioValue] = useState('1');
     const [getAnswer, setAnswer] = useState(setSelect());
-    const [currentQuestion, setCurrentQuestion] = useState(1);
 
     return (
         <>
