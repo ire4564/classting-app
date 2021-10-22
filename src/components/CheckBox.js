@@ -4,8 +4,8 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import "../App.css";
 
 function CheckBox(props) {
-    const [radioValue, setRadioValue] = useState('1');
-    
+    const [radioValue, setRadioValue] = useState(0);
+    localStorage.setItem("select", radioValue);
     return (
         <>
         {(props.dataSet).map((data, idx) => (

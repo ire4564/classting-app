@@ -41,11 +41,21 @@ function QuizPage() {
   const [ButtonText, setButtonText] = useState("다음 문제");
   const history = useHistory();
 
-  /*check answer*/
+  /*check correct answer*/
   const clickCheckAnswer = () => {
     if(currentQuestion < quizData.quiz.length-1) {
+      const correctAnswer = quizData.quiz[currentQuestion].answer;
       const updateQuestion = currentQuestion + 1;
-      setCurrentQuestion(updateQuestion);
+      const getSelect = localStorage.getItem("select");
+
+      if(correctAnswer === getSelect) {
+        //if correct answer
+        setCurrentQuestion(updateQuestion);
+        console.log("맞았습니다!");
+      } else {
+        //if wrong answer
+        console.log("틀렸습니다!");
+      }
       if (updateQuestion === quizData.quiz.length-1) {
         setButtonText("결과 보기");
       }
