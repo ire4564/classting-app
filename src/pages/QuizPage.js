@@ -8,6 +8,7 @@ import CheckBox from '../components/CheckBox';
 import Quiz from '../components/Quiz';
 import NextButton from '../components/NextButton';
 import Loading from '../components/Loading';
+import Timer from '../components/Timer';
 
 //data
 import answerData from "../data/answer.json";
@@ -39,10 +40,11 @@ function setSelect(number)  {
 }
 
 function QuizPage() {
+  let isButton = true; //눌렀을 때 버튼 동작하도록 만들어야 함 (수정)
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [ButtonText, setButtonText] = useState("다음 문제");
-  const [correct, setCorrect] = useState([]);
   const [loading, setLoading] = useState("");
+  const [correct, setCorrect] = useState([]);
   const [fail, setFail] = useState([]);
   const history = useHistory();
 
@@ -57,7 +59,7 @@ function QuizPage() {
       setFail(fail.concat(currentQuestion));
     }
     //change next button text
-    if (currentQuestion + 1 === quizData.quiz.length-1) {
+    if(currentQuestion + 1 === quizData.quiz.length-1) {
       setButtonText("결과 보기");
     }
     return true;
@@ -94,6 +96,7 @@ function QuizPage() {
         {/*Logo*/}
         <div className="col-sm-12 LogoArea">
           <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
+          <Timer mm="0" ss="0"/>
         </div>
         {/*Content(Quiz)*/}
         <div className="col-sm-12 ContentArea">
@@ -103,8 +106,12 @@ function QuizPage() {
         <div className="Loding">{loading === "none" ? <Loading/> : ""}</div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
-          <CheckBox dataSet={setSelect(currentQuestion)} setNext={currentQuestion} canClick={loading}/>
-          <NextButton clickFunc={clickCheckAnswer} btnText={ButtonText}/>
+          <CheckBox 
+            dataSet={setSelect(currentQuestion)} 
+            setNext={currentQuestion} 
+            canClick={loading}
+          />
+          {isButton ? <NextButton clickFunc={clickCheckAnswer} btnText={ButtonText}/> : ""}
         </div>
         <LifeCycle/>
         </div>

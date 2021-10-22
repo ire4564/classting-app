@@ -6,11 +6,16 @@ import "../App.css";
 function CheckBox(props) {
     const [radioValue, setRadioValue] = useState(0);
     const [next, setNext] = useState(0);
-    localStorage.setItem("select", radioValue);
+
     if(props.setNext !== next) {
         setRadioValue(0);
         setNext(props.setNext);
     }
+
+    const clilckButton = () => {
+        localStorage.setItem("select", radioValue);
+    };
+
     return (
         <>
         {(props.dataSet).map((data, idx) => (
@@ -24,6 +29,7 @@ function CheckBox(props) {
                 value={data}
                 checked={radioValue === data}
                 style={{"pointerEvents": props.canClick}}
+                onClick={clilckButton}
                 onChange={(e) => setRadioValue(e.currentTarget.value)}
                 >
                 <div className="ProblemNum">{idx+1}</div>
