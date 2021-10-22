@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 //component
 import CheckBox from '../components/CheckBox';
 import Quiz from '../components/Quiz';
 import NextButton from '../components/NextButton';
+import Loading from '../components/Loading';
+
 //data
 import answerData from "../data/answer.json";
 import quizData from "../data/quiz.json";
@@ -39,28 +41,49 @@ function setSelect(number)  {
 function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [ButtonText, setButtonText] = useState("다음 문제");
+  const [correct, setCorrect] = useState([]);
+  const [loading, setLoading] = useState("");
+  const [fail, setFail] = useState([]);
   const history = useHistory();
 
   /*check correct answer*/
+  const isCorrect = () => {
+    const correctAnswer = quizData.quiz[currentQuestion].answer;
+    const getSelect = localStorage.getItem("select");
+    
+    if(correctAnswer === getSelect) {
+      setCorrect(correct.concat(currentQuestion));
+    } else {
+      setFail(fail.concat(currentQuestion));
+    }
+    //change next button text
+    if (currentQuestion + 1 === quizData.quiz.length-1) {
+      setButtonText("결과 보기");
+    }
+    return true;
+  }
+
+  const LifeCycle = () => {
+    React.useEffect(() => {
+      localStorage.setItem("correct", correct.length);
+      localStorage.setItem("fail", fail.length);
+    });
+    return true;
+  };
+
+  /*check logic*/
   const clickCheckAnswer = () => {
     if(currentQuestion < quizData.quiz.length-1) {
-      const correctAnswer = quizData.quiz[currentQuestion].answer;
-      const updateQuestion = currentQuestion + 1;
-      const getSelect = localStorage.getItem("select");
-
-      if(correctAnswer === getSelect) {
-        //if correct answer
-        setCurrentQuestion(updateQuestion);
-        console.log("맞았습니다!");
-      } else {
-        //if wrong answer
-        console.log("틀렸습니다!");
-      }
-      if (updateQuestion === quizData.quiz.length-1) {
-        setButtonText("결과 보기");
-      }
-    } else {
-      history.push("result")
+      //pass next question
+      isCorrect();
+      setCurrentQuestion(currentQuestion + 1);
+    } else if(currentQuestion === quizData.quiz.length-1){
+      //finial page
+      isCorrect();
+      setLoading("none");
+      setTimeout(() =>
+        history.push("result")
+      , 1000);
     } 
   }
 
@@ -77,11 +100,13 @@ function QuizPage() {
           <Quiz
           question={quizData.quiz[currentQuestion].question}/>
         </div>
+        <div className="Loding">{loading === "none" ? <Loading/> : ""}</div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
-          <CheckBox dataSet={setSelect(currentQuestion)}/>
+          <CheckBox dataSet={setSelect(currentQuestion)} setNext={currentQuestion} canClick={loading}/>
           <NextButton clickFunc={clickCheckAnswer} btnText={ButtonText}/>
         </div>
+        <LifeCycle/>
         </div>
         </div>
     </div>
