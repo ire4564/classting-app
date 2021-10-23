@@ -41,12 +41,12 @@ function setSelect(number)  {
 
 function QuizPage() {
   let isButton = true; //눌렀을 때 버튼 동작하도록 만들어야 함 (수정)
+  const [isFinish, setisFinish] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [ButtonText, setButtonText] = useState("다음 문제");
   const [loading, setLoading] = useState("");
   const [correct, setCorrect] = useState([]);
   const [fail, setFail] = useState([]);
-  const [isFinish, setisFinish] = useState(false);
   const history = useHistory();
 
   /*check correct answer*/
