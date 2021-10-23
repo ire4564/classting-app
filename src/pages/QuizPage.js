@@ -9,6 +9,7 @@ import Quiz from '../components/Quiz';
 import NextButton from '../components/NextButton';
 import Loading from '../components/Loading';
 import Timer from '../components/Timer';
+import ModalWindow from '../components/ModalWindow';
 
 //data
 import answerData from "../data/answer.json";
@@ -116,6 +117,7 @@ function QuizPage() {
           {isButton ? <NextButton style="NextBtn" clickFunc={clickCheckAnswer} btnText={ButtonText}/> : ""}
         </div>
         <LifeCycle/>
+        <ModalWindow/>
         </div>
         </div>
     </div>

@@ -109,3 +109,27 @@ input[type=radio] {
   width: 90%;
   font-size: 25px;
 }
+.CheckQuestion {
+  font-size: 30px;
+}
+.CheckAnswer {
+  font-size: 25px;
+  color: #00C896;
+}
+/*Modal styles*/
+.ModalStyle {
+  width: 550px;
+}
+.ModalInner {
+  height: 75vh;
+}
+.modal-header {
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  background-color: #282c34;
+  border-bottom: 0px;
+}
