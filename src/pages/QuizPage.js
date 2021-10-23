@@ -68,8 +68,8 @@ function QuizPage() {
 
   const LifeCycle = () => {
     React.useEffect(() => {
-      localStorage.setItem("correct", correct.length);
-      localStorage.setItem("fail", fail.length);
+      localStorage.setItem("correct", correct);
+      localStorage.setItem("fail", fail);
     });
     return true;
   };
@@ -113,7 +113,7 @@ function QuizPage() {
             setNext={currentQuestion} 
             canClick={loading}
           />
-          {isButton ? <NextButton clickFunc={clickCheckAnswer} btnText={ButtonText}/> : ""}
+          {isButton ? <NextButton style="NextBtn" clickFunc={clickCheckAnswer} btnText={ButtonText}/> : ""}
         </div>
         <LifeCycle/>
         </div>

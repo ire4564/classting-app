@@ -31,10 +31,10 @@ function ResultPage() {
               <p>{resultTime}</p>
             </div>
             <div className="ResultSpace">
-              <p>맞은 문제 <b>{resultAnswer}</b> 개</p>
+              <p>맞은 문제 <b>{resultAnswer === "" ? 0 : resultAnswer.split(",").length}</b> 개</p>
             </div>
             <div className="ResultSpace">
-              <p>틀린 문제 <b>{resultFail}</b> 개</p>
+              <p>틀린 문제 <b>{resultFail === "" ? 0 : resultFail.split(",").length}</b> 개</p>
             </div>
         </div>
         </div>

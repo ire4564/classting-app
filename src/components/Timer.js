@@ -7,7 +7,6 @@ function Timer(props) {
 
     if(props.stop === true) {
       localStorage.setItem("time", `${min} : ${sec < 10 ? `0${sec}` : sec}`);
-      console.log("store compelte")
     }
 
     useEffect(() => {

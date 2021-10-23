@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import "../App.css";
 
+
 function CheckBox(props) {
     const [radioValue, setRadioValue] = useState(0);
     const [next, setNext] = useState(0);
@@ -12,6 +13,9 @@ function CheckBox(props) {
         setRadioValue(0);
         setNext(props.setNext);
     }
+    const changeValue = (e) => {
+        setRadioValue(e.currentTarget.value);
+    };
     return (
         <>
         {(props.dataSet).map((data, idx) => (
@@ -25,7 +29,7 @@ function CheckBox(props) {
                 value={data}
                 checked={radioValue === data}
                 style={{"pointerEvents": props.canClick}}
-                onChange={(e) => setRadioValue(e.currentTarget.value)}
+                onChange={(e) => changeValue(e)}
                 >
                 <div className="ProblemNum">{idx+1}</div>
                 {data}
