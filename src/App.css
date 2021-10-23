@@ -116,6 +116,10 @@ input[type=radio] {
   font-size: 25px;
   color: #00C896;
 }
+.MyAnswer {
+  font-size: 25px;
+  color:red;
+}
 /*Modal styles*/
 .ModalStyle {
   width: 550px;

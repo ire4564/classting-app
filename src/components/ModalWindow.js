@@ -2,21 +2,17 @@ import { React, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import '../App.css';
 
-function ModalWindow() {
+function ModalWindow(props) {
     const [show, setShow] = useState(false);
     const [fullscreen, setFullscreen] = useState(true);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => setShow(true); 
   
     return (
         <div>
-            <Button variant="primary" onClick={handleShow}>
-            다음 문제로
-            </Button>
-
             <Modal
-                show={show}
+                show={props.show}
                 onHide={handleClose}
                 fullscreen={fullscreen}
                 backdrop="static"
@@ -24,11 +20,11 @@ function ModalWindow() {
                 className="ModalStyle"
             >
             <Modal.Header>
-            <Modal.Title>정답이예요 :)</Modal.Title>
+            <Modal.Title>{props.resultText}</Modal.Title>
             </Modal.Header>
             <Modal.Body className="ModalInner">
-                <p className="CheckQuestion">red Apple</p>
-                <b><p className="CheckAnswer">Apple</p></b>
+                <p className="CheckQuestion">{props.questionText}</p>
+                <b><p className="CheckAnswer">{props.answerText}</p></b>
             </Modal.Body>
             <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
