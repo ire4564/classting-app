@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .App {
+  width: 550px;
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
 }
@@ -12,7 +13,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 28px;
+  /*font-size: calc(5px + 2vmin);*/
   color: white;
 }
 /*Area BootStrap css*/
@@ -44,7 +46,7 @@
 }
 /*Logo css*/
 .App-logo {
-  height: 15vmin;
+  height: 100px;
   pointer-events: none;
 }
 /*Quiz answer select Button*/
@@ -66,8 +68,8 @@
   margin-right: 20px;
 }
 .StartBtn {
-  margin-top: 30vh;
-  width: 100%;
+  margin-bottom: 10px;
+  width: 90%;
   height: 80px;
 }
 input[type=radio] { 
@@ -79,4 +81,28 @@ input[type=radio] {
   width: 120px;
   height: 50px;
   margin-right: 3.5%
+}
+.Timer {
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b1d22;
+  color: white;
+}
+.ContextAlign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.BlankSpace {
+  height: 8vh;
+}
+.ResultSpace {
+  background-color: #1b1d22;
+  padding: 10px;
+  width: 90%;
+  font-size: 25px;
 }

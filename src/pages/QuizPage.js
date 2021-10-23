@@ -46,6 +46,7 @@ function QuizPage() {
   const [loading, setLoading] = useState("");
   const [correct, setCorrect] = useState([]);
   const [fail, setFail] = useState([]);
+  const [isFinish, setisFinish] = useState(false);
   const history = useHistory();
 
   /*check correct answer*/
@@ -82,6 +83,7 @@ function QuizPage() {
     } else if(currentQuestion === quizData.quiz.length-1){
       //finial page
       isCorrect();
+      setisFinish(true);
       setLoading("none");
       setTimeout(() =>
         history.push("result")
@@ -96,7 +98,7 @@ function QuizPage() {
         {/*Logo*/}
         <div className="col-sm-12 LogoArea">
           <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
-          <Timer mm="0" ss="0"/>
+          <Timer mm="0" ss="0" stop={isFinish}/>
         </div>
         {/*Content(Quiz)*/}
         <div className="col-sm-12 ContentArea">

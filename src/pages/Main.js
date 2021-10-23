@@ -12,6 +12,7 @@ function Main() {
                 <div className="col-sm-12">
                 <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
                 </div>
+                <div className="BlankSpace"> </div>
                 <Link to="/quiz">
                     <Button variant="secondary" size="lg" className="StartBtn">퀴즈 풀기 시작</Button>
                 </Link>
