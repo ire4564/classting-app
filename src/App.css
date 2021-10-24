@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .App {
+  width: 100vw;
+  height:100vh;
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
 }
 .Container {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 28px;
-  /*font-size: calc(5px + 2vmin);*/
+  font-size: calc(5px + 3vmin);
   color: white;
 }
 /*Area BootStrap css*/
 .LogoArea {
-  height: 10%;
-  margin-bottom: -50px;
+  height: 5vh;
+  margin-bottom: 5vh;
 }
 .ContentArea {
   height: 50vh;
@@ -28,12 +29,14 @@
   align-items: center;
 }
 .SelectArea {
+  height: 40vh;
   align-items: center;
   justify-content: center;
+  margin-top: -5vh;
 }
 .QuizArea {
   width: 90%;
-  height: 70%;
+  height: 60%;
   min-width: 80%;
   background-color: white;
   border-radius: 5px;
@@ -45,13 +48,12 @@
 }
 /*Logo css*/
 .App-logo {
-  height: 100px;
-  pointer-events: none;
+  height: 10vh;
 }
 /*Quiz answer select Button*/
 .SelectBtn {
   width: 95%;
-  height: 50px;
+  height: 6vh;
   display: flex;
   align-items: center;
   margin: 10px
@@ -78,15 +80,14 @@ input[type=radio] {
   display: none;
 }
 .NextBtn {
-  float: right;
+  float: center;
   margin-top: 10px;
-  width: 120px;
+  width: 20vh;
   height: 50px;
-  margin-right: 3.5%
 }
 .Timer {
   height: 50px;
-  width: 400px;
+  width: 20vh;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -126,7 +127,8 @@ input[type=radio] {
 }
 /*Modal styles*/
 .ModalStyle {
-  
+  width: 100vw;
+  height: 100vh;
 }
 .ModalInner {
   height: 75vh;
