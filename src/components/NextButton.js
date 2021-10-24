@@ -7,7 +7,7 @@ function NextButton(props) {
             <Button 
             onClick={props.clickFunc} 
             variant="outline-light" 
-            className={props.style}
+            className={props.styles}
             >
             {props.btnText}
             </Button>

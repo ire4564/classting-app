@@ -10,7 +10,7 @@ function Main() {
             <div className="row">
                 {/*Logo*/}
                 <div className="col-sm-12">
-                <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
+                <img src="https://about.classting.com/images/classting_logo.png" className="App-logo" alt="profile"/>
                 </div>
                 <div className="BlankSpace"> </div>
                 <Link to="/quiz">

@@ -7,10 +7,8 @@ import { useHistory } from 'react-router-dom';
 //component
 import CheckBox from '../components/CheckBox';
 import Quiz from '../components/Quiz';
-import NextButton from '../components/NextButton';
 import Loading from '../components/Loading';
 import Timer from '../components/Timer';
-import ModalWindow from '../components/ModalWindow';
 
 //data
 import answerData from "../data/answer.json";
@@ -42,7 +40,6 @@ function setSelect(number)  {
 }
 
 function QuizPage() {
-  let isButton = true; //눌렀을 때 버튼 동작하도록 만들어야 함 (수정)
   const [isFinish, setisFinish] = useState(false);
   const [resultText, setResultText] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -56,9 +53,7 @@ function QuizPage() {
 
   //Modal functions
   const [show, setShow] = useState(false);
-  const [fullscreen, setFullscreen] = useState(true);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true); 
 
   /*check correct answer*/
   const isCorrect = () => {
@@ -122,7 +117,7 @@ function QuizPage() {
       <div className="row">
         {/*Logo*/}
         <div className="col-sm-12 LogoArea">
-          <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
+          <img src="https://about.classting.com/images/classting_logo.png" className="App-logo" alt="profile"/>
           <Timer mm="0" ss="0" stop={isFinish}/>
         </div>
         {/*Content(Quiz)*/}
@@ -137,32 +132,33 @@ function QuizPage() {
             dataSet={setSelect(currentQuestion)} 
             setNext={currentQuestion} 
             canClick={loading}
+            clickFuncs={clickCheckAnswer}
+            btnTexts={ButtonText}
           />
-          {isButton ? <NextButton style="NextBtn" clickFunc={clickCheckAnswer} btnText={ButtonText}/> : ""}
         </div>
         <LifeCycle/>
         {/*Modal*/}
         <Modal
+          animation={false} /*fix error*/
           show={show}
           onHide={handleClose}
-          fullscreen={fullscreen}
           backdrop="static"
           keyboard={false}
           className="ModalStyle"
         >
-          <Modal.Header>
-          <Modal.Title>{resultText[0]}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="ModalInner">
-              <p className="CheckQuestion">{resultText[1]}</p>
-              <b><p className="CheckAnswer">{resultText[2]}</p></b>
-              <b><p className="MyAnswer">{resultText[3]}</p></b>
-          </Modal.Body>
-          <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-              다음 문제 풀기
-          </Button>
-          </Modal.Footer>
+        <Modal.Header>
+        <Modal.Title>{resultText[0]}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="ModalInner">
+            <p className="CheckQuestion">{resultText[1]}</p>
+            <b><p className="CheckAnswer">{resultText[2]}</p></b>
+            <b><p className="MyAnswer">{resultText[3]}</p></b>
+        </Modal.Body>
+        <Modal.Footer>
+        <Button variant="primary" onClick={handleClose}>
+            다음 문제 풀기
+        </Button>
+        </Modal.Footer>
         </Modal>
         </div>
         </div>

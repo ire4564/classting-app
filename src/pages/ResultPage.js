@@ -14,7 +14,7 @@ function ResultPage() {
         <div className="row ContextAlign">
             {/*Logo -> 나중에 로고 중복 정리하기*/}
             <div className="col-sm-12 LogoArea">
-            <img src="https://about.classting.com/images/classting_logo.png" className="App-logo"/>
+            <img src="https://about.classting.com/images/classting_logo.png" className="App-logo" alt="profile"/>
             </div>
             <div className="BlankSpace"> </div>
             {/*go start button*/}
