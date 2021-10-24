@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 .App {
-  width: 550px;
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
 }
@@ -127,7 +126,7 @@ input[type=radio] {
 }
 /*Modal styles*/
 .ModalStyle {
-  width: 550px;
+  
 }
 .ModalInner {
   height: 75vh;
