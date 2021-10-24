@@ -37,10 +37,10 @@ function ResultPage() {
             </div>
 
              {/*go start button*/}
-             <Link to="/">
+             <Link to="/quiz">
                 <Button variant="secondary" size="lg" className="StartBtn">다시 풀기</Button>
             </Link>
-            <Link to="/">
+            <Link to="/practice">
                 <Button variant="secondary" size="lg" className="StartBtn">오답 노트</Button>
             </Link>
 

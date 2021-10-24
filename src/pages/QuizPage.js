@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 //component
 import CheckBox from '../components/CheckBox';
@@ -10,36 +11,27 @@ import Quiz from '../components/Quiz';
 import Loading from '../components/Loading';
 import Timer from '../components/Timer';
 
-//data
-import answerData from "../data/answer.json";
-import quizData from "../data/quiz.json";
-
 /*set selection*/
-function setSelect(number)  {
-    //answerData.answer.length => Sample Data length
-    let setAnswer = [];
-    let isExist = [true, true, true, true];
-    let checkReady = 1;
-    let radomIndex = Math.floor(Math.random() * (3)) + 0;
+function setSelect(number, dataSet)  {
+    let wrongSet = dataSet[number].incorrect_answers;
+    let setAnswer = ["", "", "", ""];
+    let index = 0;
     //set radom order
-    setAnswer[radomIndex] = quizData.quiz[number].answer;
-    isExist[radomIndex] = false;
-
-    while(checkReady !== 4) {
-        radomIndex = Math.floor(Math.random() * (answerData.answer.length-1)) + 0;
-        var radomData = answerData.answer[radomIndex];
-        //new Index => then set AnswerArray
-        if(setAnswer.indexOf(radomData) === -1) {
-            var index = isExist.indexOf(true);
-            setAnswer[index] = radomData;
-            isExist[index] = false;
-            checkReady++;
-        }
+    let radomIndex = Math.floor(Math.random() * (3)) + 0;
+    setAnswer[radomIndex] = dataSet[number].correct_answer;
+    
+    for(var i=0; i<setAnswer.length; i++) {
+      if(setAnswer[i] === "") {
+        setAnswer[i] = wrongSet[index];
+        index++;
+      }
     }
     return setAnswer;
 }
 
 function QuizPage() {
+  const [getData, setGetData] = useState([]);
+
   const [isFinish, setisFinish] = useState(false);
   const [resultText, setResultText] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -55,9 +47,22 @@ function QuizPage() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
+  /*load Data*/
+  useEffect(() => {
+    const fetchData = async() => {
+      try {
+        const res = await axios.get("https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple");
+        setGetData(res.data.results);
+      } catch(e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
+  
   /*check correct answer*/
   const isCorrect = () => {
-    const correctAnswer = quizData.quiz[currentQuestion].answer;
+    const correctAnswer = getData[currentQuestion].correct_answer;
     const getSelect = localStorage.getItem("select");
     let isIncorrect = false;
     let resultArr = [];
@@ -71,11 +76,11 @@ function QuizPage() {
       setFail(fail.concat(currentQuestion));
     }
     //change next button text
-    if(currentQuestion + 1 === quizData.quiz.length-1) {
+    if(currentQuestion + 1 === getData.length-1) {
       setButtonText("결과 보기");
     }
     //set result Text in Modal
-    resultArr.push(quizData.quiz[currentQuestion].question);
+    resultArr.push(getData[currentQuestion].question);
     resultArr.push(correctAnswer);
 
     if(isIncorrect === true) resultArr.push(getSelect);
@@ -96,11 +101,11 @@ function QuizPage() {
 
   /*check logic*/
   const clickCheckAnswer = () => {
-    if(currentQuestion < quizData.quiz.length-1) {
+    if(currentQuestion < getData.length-1) {
       //pass next question
       isCorrect();
       setCurrentQuestion(currentQuestion + 1);
-    } else if(currentQuestion === quizData.quiz.length-1){
+    } else if(currentQuestion === getData.length-1){
       //finial page
       isCorrect();
       setisFinish(true);
@@ -122,19 +127,18 @@ function QuizPage() {
         </div>
         {/*Content(Quiz)*/}
         <div className="col-sm-12 ContentArea">
-          <Quiz
-          question={quizData.quiz[currentQuestion].question}/>
+          {getData.length !== 0 ? <Quiz question={getData[currentQuestion].question}/> : ""}
         </div>
         <div className="Loding">{loading === "none" ? <Loading/> : ""}</div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
-          <CheckBox 
-            dataSet={setSelect(currentQuestion)} 
+        {getData.length !== 0 ? <CheckBox 
+            dataSet={setSelect(currentQuestion, getData)} 
             setNext={currentQuestion} 
             canClick={loading}
             clickFuncs={clickCheckAnswer}
             btnTexts={ButtonText}
-          />
+          /> : ""}
         </div>
         <LifeCycle/>
         {/*Modal*/}
