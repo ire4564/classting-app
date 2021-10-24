@@ -105,9 +105,14 @@ input[type=radio] {
 }
 .ResultSpace {
   background-color: #1b1d22;
-  padding: 10px;
   width: 90%;
-  font-size: 25px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+.ChartSpace {
+  width: 300px;
+  margin: 40px;
+  margin-top: 20px;
 }
 .CheckQuestion {
   font-size: 30px;

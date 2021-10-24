@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
 
+//components
+import Chart from '../components/Chart';
+
 function ResultPage() {
-  const resultAnswer = localStorage.getItem("correct");
-  const resultFail = localStorage.getItem("fail");
+  let resultAnswer = localStorage.getItem("correct");
+  let resultFail = localStorage.getItem("fail");
   const resultTime = localStorage.getItem("time");
 
+  resultAnswer = resultAnswer === "" ? 0 : resultAnswer.split(",").length
+  resultFail = resultFail === "" ? 0 : resultFail.split(",").length
   return (
     <div className="ResultPage">
         <div className="Container">
@@ -17,25 +22,28 @@ function ResultPage() {
             <img src="https://about.classting.com/images/classting_logo.png" className="App-logo" alt="profile"/>
             </div>
             <div className="BlankSpace"> </div>
-            {/*go start button*/}
-            <Link to="/">
-                <Button variant="secondary" size="lg" className="StartBtn">다시 풀기</Button>
-            </Link>
-            <Link to="/">
-                <Button variant="secondary" size="lg" className="StartBtn">오답 노트</Button>
-            </Link>
-            <div className="BlankSpace"> </div>
+           
             {/*result page*/}
             <div className="ResultSpace">
               <b><p>FINISH Time</p></b>
               <p>{resultTime}</p>
             </div>
             <div className="ResultSpace">
-              <p>맞은 문제 <b>{resultAnswer === "" ? 0 : resultAnswer.split(",").length}</b> 개</p>
+              <p>맞은 문제 <b>{resultAnswer}</b> 개</p>
+              <p>틀린 문제 <b>{resultFail}</b> 개</p>
             </div>
-            <div className="ResultSpace">
-              <p>틀린 문제 <b>{resultFail === "" ? 0 : resultFail.split(",").length}</b> 개</p>
+            <div className="ChartSpace">
+              <Chart correct={resultAnswer} wrong={resultFail}/>
             </div>
+
+             {/*go start button*/}
+             <Link to="/">
+                <Button variant="secondary" size="lg" className="StartBtn">다시 풀기</Button>
+            </Link>
+            <Link to="/">
+                <Button variant="secondary" size="lg" className="StartBtn">오답 노트</Button>
+            </Link>
+
         </div>
         </div>
     </div>
