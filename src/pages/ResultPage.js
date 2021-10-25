@@ -11,8 +11,8 @@ function ResultPage() {
   let resultFail = localStorage.getItem("fail");
   const resultTime = localStorage.getItem("time");
 
-  resultAnswer = resultAnswer === "" ? 0 : resultAnswer.split(",").length
-  resultFail = resultFail === "" ? 0 : resultFail.split(",").length
+  resultAnswer = resultAnswer === "" ? 0 : resultAnswer.split(",").length;
+  resultFail = resultFail === "" ? 0 : resultFail.split(",").length;
   return (
     <div className="ResultPage">
         <div className="Container">

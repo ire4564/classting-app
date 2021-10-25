@@ -29,7 +29,7 @@ function setSelect(number, dataSet)  {
     return setAnswer;
 }
 
-function QuizPage() {
+function QuizPage(props) {
   const [getData, setGetData] = useState([]);
 
   const [isFinish, setisFinish] = useState(false);
@@ -40,6 +40,7 @@ function QuizPage() {
 
   const [correct, setCorrect] = useState([]);
   const [fail, setFail] = useState([]);
+  const [wrongSet, setWrongSet] = useState([]);
   
   const history = useHistory();
 
@@ -49,15 +50,23 @@ function QuizPage() {
 
   /*load Data*/
   useEffect(() => {
-    const fetchData = async() => {
-      try {
-        const res = await axios.get("https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple");
-        setGetData(res.data.results);
-      } catch(e) {
-        console.log(e);
+    if(props.wrongArr !== undefined) {
+    /*wrong answer note function*/
+      if(props.wrongArr.length !== 0) {
+        setGetData(props.wrongArr);
       }
-    };
-    fetchData();
+    } else {
+      /*new quiz loading*/
+      const fetchData = async() => {
+        try {
+          const res = await axios.get("https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple");
+          setGetData(res.data.results);
+        } catch(e) {
+          console.log(e);
+        }
+      };
+      fetchData();
+    }
   }, []);
   
   /*check correct answer*/
@@ -74,6 +83,7 @@ function QuizPage() {
       resultArr.push("틀렸습니다 :(");
       isIncorrect = true;
       setFail(fail.concat(currentQuestion));
+      setWrongSet(wrongSet.concat(getData[currentQuestion]));
     }
     //change next button text
     if(currentQuestion + 1 === getData.length-1) {
@@ -95,6 +105,7 @@ function QuizPage() {
     React.useEffect(() => {
       localStorage.setItem("correct", correct);
       localStorage.setItem("fail", fail);
+      localStorage.setItem("wrongset", JSON.stringify(wrongSet));
     });
     return true;
   };

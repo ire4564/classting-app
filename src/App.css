@@ -54,6 +54,7 @@
 .SelectBtn {
   width: 95%;
   height: 6vh;
+  max-height: 50px;
   display: flex;
   align-items: center;
   margin: 10px
@@ -138,6 +139,7 @@ input[type=radio] {
 }
 /*Modal styles*/
 .ModalStyle {
+  font-size: calc(5px + 2vmin);
   width: 100vw;
   height: 100vh;
 }
@@ -149,7 +151,6 @@ input[type=radio] {
   border-left: 1px solid white;
   border-right: 1px solid white;
   text-align: left;
-  font-size: 20px;
   color: white;
   background-color: #282c34;
   border-bottom: 0px;
