@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/classting-app/static/css/main.c6928eff.chunk.css",
-    "main.js": "/classting-app/static/js/main.e2ba039d.chunk.js",
-    "main.js.map": "/classting-app/static/js/main.e2ba039d.chunk.js.map",
+    "main.js": "/classting-app/static/js/main.a1197ea1.chunk.js",
+    "main.js.map": "/classting-app/static/js/main.a1197ea1.chunk.js.map",
     "runtime-main.js": "/classting-app/static/js/runtime-main.072064ab.js",
     "runtime-main.js.map": "/classting-app/static/js/runtime-main.072064ab.js.map",
     "static/css/2.8c0e6b67.chunk.css": "/classting-app/static/css/2.8c0e6b67.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.8c0e6b67.chunk.css",
     "static/js/2.67da5eca.chunk.js",
     "static/css/main.c6928eff.chunk.css",
-    "static/js/main.e2ba039d.chunk.js"
+    "static/js/main.a1197ea1.chunk.js"
   ]
 }
