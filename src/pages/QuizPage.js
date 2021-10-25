@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import '../App.css';
 import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
@@ -12,7 +10,7 @@ import Loading from '../components/Loading';
 import Timer from '../components/Timer';
 
 /*set selection*/
-function setSelect(number, dataSet)  {
+export function setSelect(number, dataSet)  {
     let wrongSet = dataSet[number].incorrect_answers;
     let setAnswer = ["", "", "", ""];
     let index = 0;
@@ -38,7 +36,7 @@ function setSelect(number, dataSet)  {
     return setAnswer;
 }
 
-function setQuestion(questionData) {
+export function setQuestion(questionData) {
   /*error set fix => &~; in question*/
   let startError = questionData.indexOf("&");
   let finError = questionData.indexOf(";");
@@ -51,7 +49,7 @@ function setQuestion(questionData) {
   return questionData;
 }
 
-function QuizPage(props) {
+export function QuizPage(props) {
   const [getData, setGetData] = useState([]);
 
   const [isFinish, setisFinish] = useState(false);

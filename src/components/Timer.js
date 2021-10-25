@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "../App.css";
 
 function Timer(props) {
     const [min, setMin] = useState(parseInt(props.mm));
