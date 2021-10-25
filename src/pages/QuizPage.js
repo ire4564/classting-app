@@ -112,7 +112,7 @@ function QuizPage(props) {
       setButtonText("결과 보기");
     }
     //set result Text in Modal
-    resultArr.push(getData[currentQuestion].question);
+    resultArr.push(setQuestion(getData[currentQuestion].question));
     resultArr.push(correctAnswer);
 
     if(isIncorrect === true) resultArr.push(getSelect);

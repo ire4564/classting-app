@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <label
+    class="SelectBtn btn btn-outline-success"
+    id="radio-0"
+  >
+    <input
+      autocomplete="off"
+      name="radio"
+      type="radio"
+      value="A"
+    />
+    <div
+      class="ProblemNum"
+    >
+      1
+    </div>
+    A
+  </label>
+  <label
+    class="SelectBtn btn btn-outline-success"
+    id="radio-1"
+  >
+    <input
+      autocomplete="off"
+      name="radio"
+      type="radio"
+      value="B"
+    />
+    <div
+      class="ProblemNum"
+    >
+      2
+    </div>
+    B
+  </label>
+  <label
+    class="SelectBtn btn btn-outline-success"
+    id="radio-2"
+  >
+    <input
+      autocomplete="off"
+      name="radio"
+      type="radio"
+      value="C"
+    />
+    <div
+      class="ProblemNum"
+    >
+      3
+    </div>
+    C
+  </label>
+  <label
+    class="SelectBtn btn btn-outline-success"
+    id="radio-3"
+  >
+    <input
+      autocomplete="off"
+      name="radio"
+      type="radio"
+      value="D"
+    />
+    <div
+      class="ProblemNum"
+    >
+      4
+    </div>
+    D
+  </label>
+  <div>
+    <button
+      class="NextBtn DisplayNone btn btn-outline-light"
+      type="button"
+    />
+  </div>
+</div>
+`;

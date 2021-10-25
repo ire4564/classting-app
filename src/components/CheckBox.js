@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import "../App.css";
 import NextButton from './NextButton';
 
 

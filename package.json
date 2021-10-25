@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.23.0",
     "babel-jest": "^26.6.0",
@@ -24,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -47,5 +45,10 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://ire4564.github.io/classting-app"
+  "homepage": "http://ire4564.github.io/classting-app",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7"
+  }
 }
