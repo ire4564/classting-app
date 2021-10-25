@@ -1,9 +1,6 @@
 # Classting Assignment
 
-
-
-<video src="C:\Users\user\Desktop\classting_test.mp4"></video>
-
+https://user-images.githubusercontent.com/44183221/138678065-340a7317-c86f-4fda-a99d-e446cd2d7bf1.mp4
 
 
 ## Result
