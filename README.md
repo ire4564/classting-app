@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Classting Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<video src="C:\Users\user\Desktop\classting_test.mp4"></video>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Result
 
-### `yarn test`
+>  https://ire4564.github.io/classting-app/ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* 퀴즈 웹앱, 완성 및 시연 결과물입니다.
 
-### `yarn build`
+* 과제 요구사항에 맞춰 기능에 충실하도록 구현하였습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  > 구현기능
+  >
+  > 1. 퀴즈 풀기 버튼으로 퀴즈를 시작할 수 있습니다.
+  > 2. 답안 보기는 4개가 제공되며, 하나를 고르는 다중 선택 형식으로 진행합니다.
+  > 3. 다음 버튼을 누르면 답안이 맞았는지, 틀렸는지 알 수 있습니다.
+  > 4. 답 확인 후 다음 문제로 넘어갈 수 있습니다.
+  > 5. 문제는 한 턴당 10개의 문제를 제공합니다.
+  > 6. 퀴즈를 풀면 사용자는 소요 시간, 정답 개수, 오답 수를 확인할 수 있습니다.
+  > 7. 정오답에 대한 비율을 차트를 이용하여 직관적으로 볼 수 있습니다.
+  > 8. 다시 풀기 버튼을 누르면 홈 화면으로 돌아갑니다. 
+  > 9. 퀴즈 풀기 버튼을 누르면 다시 풀 수 있습니다.
+  > 10. 오답 노트를 누르면 이전에 틀렸던 문제를 다시 풀 수 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Assignment Detail
 
-### `yarn eject`
+본 프로젝트를 직접 실행하려면 npm install로 모듈을 설치한 후, 아래 명령어를 입력해주세요:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `npm start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+프로젝트를 Github page에 배포하기 위해서는 아래의 명령어를 사용해주세요:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `npm run deploy`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Jest를 사용하여 컴포넌트 테스트를 진행할 수 있습니다:
 
-## Learn More
+### `npm test`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Review
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Notion에 간단한 리뷰와 진행 과정을 담아보았습니다. 참고 자료로 사용해주시면 감사합니다.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://irelifesheet.notion.site/Classting-Record-56042c63ac124c78ab6b855d54b303d9
