@@ -16,6 +16,9 @@ function Main() {
                 <Link to="/quiz">
                     <Button variant="secondary" size="lg" className="StartBtn">퀴즈 풀기 시작</Button>
                 </Link>
+                <Link to="/practice">
+                    <Button variant="secondary" size="lg" className="StartBtn">오답 노트</Button>
+                </Link>
             </div>
         </div>
     </div>

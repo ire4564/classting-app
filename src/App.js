@@ -7,6 +7,7 @@ import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
 import Main from './pages/Main';
 import PracticePage from './pages/PracticePage';
+import WrongNone from './pages/WrongNone';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/quiz" component={QuizPage} />
           <Route path="/result" component={ResultPage} />
           <Route path="/practice" component={PracticePage} />
+          <Route path="/none" component={WrongNone} />
         </Router>
         </Switch>
       </BrowserRouter>

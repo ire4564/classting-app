@@ -17,7 +17,6 @@ function ResultPage() {
     <div className="ResultPage">
         <div className="Container">
         <div className="row ContextAlign">
-            {/*Logo -> 나중에 로고 중복 정리하기*/}
             <div className="col-sm-12 LogoArea">
             <img src="https://about.classting.com/images/classting_logo.png" className="App-logo" alt="profile"/>
             </div>
@@ -39,7 +38,7 @@ function ResultPage() {
             </div>
             <div className="ButtonSpace">
               {/*go start button*/}
-              <Link to="/quiz">
+              <Link to="/">
                   <Button variant="secondary" size="lg" className="StartBtn">다시 풀기</Button>
               </Link>
               <Link to="/practice">

@@ -10,8 +10,8 @@ function setData(correct, wrong) {
         datasets: [{
           data: [correct, wrong],
           backgroundColor: [
-          '#FF6384',
-          '#36A2EB',
+          '#00C896',
+          '#1B1D22',
           ],
           hoverBackgroundColor: [
           '#FF6384',

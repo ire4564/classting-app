@@ -155,3 +155,6 @@ input[type=radio] {
   background-color: #282c34;
   border-bottom: 0px;
 }
+.contentText {
+  margin-top: -8.5vh;
+}

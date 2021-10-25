@@ -140,7 +140,10 @@ function QuizPage(props) {
         <div className="col-sm-12 ContentArea">
           {getData.length !== 0 ? <Quiz question={getData[currentQuestion].question}/> : ""}
         </div>
-        <div className="Loding">{loading === "none" ? <Loading/> : ""}</div>
+        <div className="Loding">
+          {loading === "none" ? <Loading/> : 
+          <p className="contentText"> <b>{currentQuestion}</b> / {getData.length}</p>}
+        </div>
         {/*Button(check)*/}
         <div className="col-sm-12 SelectArea">
         {getData.length !== 0 ? <CheckBox 
