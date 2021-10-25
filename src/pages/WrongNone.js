@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
 
-import QuizPage from './QuizPage';
-
 function WrongNone() {
   return (
     <div className="Main">

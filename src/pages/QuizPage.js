@@ -22,11 +22,33 @@ function setSelect(number, dataSet)  {
     
     for(var i=0; i<setAnswer.length; i++) {
       if(setAnswer[i] === "") {
+        /*error set fix => &~;*/
+        let startError = wrongSet[index].indexOf("&");
+        let finError = wrongSet[index].indexOf(";");
+
+        if(startError) {
+          let fix = wrongSet[index].substr(0, startError);
+          fix += wrongSet[index].substr(finError+1, wrongSet[index].length);
+          wrongSet[index] = fix;
+        }
         setAnswer[i] = wrongSet[index];
         index++;
       }
     }
     return setAnswer;
+}
+
+function setQuestion(questionData) {
+  /*error set fix => &~; in question*/
+  let startError = questionData.indexOf("&");
+  let finError = questionData.indexOf(";");
+
+  if(startError) {
+    let fix = questionData.substr(0, startError);
+    fix += questionData.substr(finError+1, questionData.length);
+    questionData = fix;
+  }
+  return questionData;
 }
 
 function QuizPage(props) {
@@ -67,7 +89,7 @@ function QuizPage(props) {
       };
       fetchData();
     }
-  }, []);
+  }, [props.wrongArr]);
   
   /*check correct answer*/
   const isCorrect = () => {
@@ -138,7 +160,7 @@ function QuizPage(props) {
         </div>
         {/*Content(Quiz)*/}
         <div className="col-sm-12 ContentArea">
-          {getData.length !== 0 ? <Quiz question={getData[currentQuestion].question}/> : ""}
+          {getData.length !== 0 ? <Quiz question={setQuestion(getData[currentQuestion].question)}/> : ""}
         </div>
         <div className="Loding">
           {loading === "none" ? <Loading/> : 
